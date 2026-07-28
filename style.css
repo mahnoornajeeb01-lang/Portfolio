@@ -694,21 +694,3 @@ footer {
     }
 }
 
-@media (max-width: 576px) {
-    /* ... your existing styles ... */
-
-    /* Hide floating skill icons on small screens to prevent image overlap */
-    .floating-icon {
-        display: none;
-    }
-}
-
-@media (max-width: 576px) {
-    /* Position icons further out relative to the 180px circle */
-    .icon-ai     { top: -10px; left: 15px; }
-    .icon-ps     { top: 20px;  left: -15px; }
-    .icon-canva  { bottom: 30px; left: -15px; }
-    .icon-figma  { bottom: -15px; left: 25px; }
-    .icon-id     { bottom: 10px; right: 5px; }
-    .icon-vector { top: 0px; right: 10px; }
-}
