@@ -23,7 +23,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html {
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -31,11 +34,11 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 section {
     padding: 6rem 8% 4rem;
+    width: 100%;
 }
 
 .section-tag {
@@ -158,6 +161,7 @@ section {
     display: flex;
     align-items: center;
     background: radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 1) 100%);
+    overflow: hidden;
 }
 
 .ambient-glow {
@@ -214,7 +218,7 @@ section {
     max-width: 500px;
 }
 
-/* Profile Image Wrapper & Clear Skill Badges */
+/* Profile Image Wrapper & Skill Badges */
 .hero-image-wrapper {
     position: relative;
     display: flex;
@@ -245,7 +249,7 @@ section {
     display: block;
 }
 
-/* Floating Skill Icons Positions Around Circle */
+/* Floating Skill Icons Positions */
 .floating-icon {
     position: absolute;
     width: 48px;
@@ -275,10 +279,9 @@ section {
     50% { transform: translateY(-10px); }
 }
 
-/* Stats Badge Shifted Cleanly To The Right Side */
 .stats-badge {
     position: absolute;
-    right: -10px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
     background: var(--bg-card);
@@ -321,14 +324,14 @@ section {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .brand-item {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -567,6 +570,7 @@ section {
     justify-content: center;
     font-size: 1.2rem;
     color: #fff;
+    flex-shrink: 0;
 }
 
 .client-info h4 {
@@ -591,6 +595,7 @@ section {
     border: 1px solid var(--gray-border);
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .contact-info h2 {
@@ -610,12 +615,14 @@ section {
     gap: 0.8rem;
     color: var(--accent-pink);
     font-weight: 600;
+    word-break: break-word;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    width: 100%;
 }
 
 .form-group input,
@@ -644,16 +651,18 @@ section {
    11. FOOTER
    ========================================== */
 footer {
-    padding: 2.5rem 8%;
+    padding: 2.5rem 5%;
     background: #0e0e0e;
     text-align: center;
     border-top: 1px solid var(--gray-border);
+    width: 100%;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
     list-style: none;
     margin-bottom: 1.5rem;
 }
@@ -699,9 +708,13 @@ footer {
 }
 
 /* ==========================================
-   12. RESPONSIVE DESIGN
+   12. RESPONSIVE DESIGN FOR IPHONE & SAMSUNG
    ========================================== */
 @media (max-width: 992px) {
+    section {
+        padding: 5rem 5% 3rem;
+    }
+
     #menu-icon {
         display: block;
     }
@@ -729,11 +742,21 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .hero-text p {
         margin: 0 auto 2rem;
+    }
+
+    .hero-image-wrapper {
+        max-width: 320px;
+        height: 320px;
+    }
+
+    .profile-circle {
+        width: 220px;
+        height: 220px;
     }
 
     .stats-badge {
@@ -741,9 +764,11 @@ footer {
         right: auto;
         top: auto;
         transform: none;
-        margin-top: 2rem;
+        margin: 2rem auto 0;
         flex-direction: row;
         justify-content: center;
+        width: 100%;
+        max-width: 300px;
     }
 
     .stats-badge hr {
@@ -761,5 +786,91 @@ footer {
 
     .contact-container {
         grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 4rem 4% 2.5rem;
+    }
+
+    .header {
+        padding: 1rem 4%;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 0.92rem;
+    }
+
+    .hero-image-wrapper {
+        max-width: 260px;
+        height: 260px;
+    }
+
+    .profile-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Keep icons positioned nicely around the smaller circle */
+    .floating-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+
+    .icon-ai { top: 0; left: 10%; }
+    .icon-ps { top: 25%; left: -2%; }
+    .icon-canva { bottom: 25%; left: -2%; }
+    .icon-figma { bottom: 0; left: 15%; }
+    .icon-id { bottom: 15%; right: 0; }
+    .icon-vector { top: 10%; right: 0; }
+
+    .brand-banner {
+        padding: 1.5rem 4%;
+    }
+
+    .brand-item {
+        font-size: 1.1rem;
+    }
+
+    .counter-group {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .counter-box h3 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .portfolio-card {
+        height: 220px;
+    }
+
+    .feedback-card {
+        padding: 1.5rem;
+    }
+
+    .contact-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.6rem;
     }
 }
