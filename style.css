@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 /* ==========================================
    1. BASE PALETTE & ANIMATED DESIGNER BG
@@ -20,7 +20,7 @@
     text-decoration: none;
     border: none;
     outline: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 html {
@@ -32,6 +32,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 section {
@@ -221,8 +222,8 @@ section {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 450px;
-    height: 450px;
+    max-width: 480px;
+    height: 480px;
     margin: 0 auto;
 }
 
@@ -248,27 +249,35 @@ section {
 /* Floating Skill Icons Positions Around Circle */
 .floating-icon {
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: var(--bg-card);
     border: 1px solid var(--gray-border);
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--accent-pink);
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     animation: float 4s ease-in-out infinite;
-    z-index: 3;
+    z-index: 10;
 }
 
-.icon-ai { top: 10px; left: 15%; animation-delay: 0s; }
-.icon-ps { top: 25%; left: 0%; animation-delay: 0.8s; }
-.icon-canva { bottom: 25%; left: 0%; animation-delay: 1.6s; }
-.icon-figma { bottom: 10px; left: 20%; animation-delay: 2.4s; }
-.icon-id { bottom: 20%; right: 5%; animation-delay: 3.2s; }
-.icon-vector { top: 15%; right: 8%; animation-delay: 4s; }
+.floating-icon i,
+.floating-icon i::before {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-weight: 900 !important;
+    display: inline-block;
+    color: var(--accent-pink);
+}
+
+.icon-ai { top: 15px; left: 12%; animation-delay: 0s; }
+.icon-ps { top: 32%; left: 2%; animation-delay: 0.8s; }
+.icon-canva { bottom: 28%; left: 2%; animation-delay: 1.6s; }
+.icon-figma { bottom: 15px; left: 18%; animation-delay: 2.4s; }
+.icon-id { bottom: 25px; right: 15%; animation-delay: 3.2s; }
+.icon-vector { top: 25px; right: 18%; animation-delay: 4s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -278,7 +287,7 @@ section {
 /* Stats Badge Shifted Cleanly To The Right Side */
 .stats-badge {
     position: absolute;
-    right: -10px;
+    right: -25px;
     top: 50%;
     transform: translateY(-50%);
     background: var(--bg-card);
@@ -289,7 +298,7 @@ section {
     flex-direction: column;
     gap: 0.8rem;
     box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-    z-index: 4;
+    z-index: 11;
 }
 
 .stats-badge hr {
@@ -544,11 +553,13 @@ section {
 }
 
 .testimonial-text {
+    font-family: 'Poppins', sans-serif !important;
     font-size: 0.98rem;
     color: var(--text-primary);
     line-height: 1.7;
     margin-bottom: 1.8rem;
     font-style: italic;
+    font-weight: 300;
 }
 
 .client-info {
@@ -571,6 +582,7 @@ section {
 
 .client-info h4 {
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .client-info span {
@@ -628,6 +640,7 @@ section {
     color: #fff;
     font-size: 0.92rem;
     transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
 }
 
 .form-group input:focus,
