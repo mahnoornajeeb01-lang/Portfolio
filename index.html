@@ -3,242 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahnoor Najeeb | Portfolio</title>
+    <title>Mahnoor Najeeb | Graphic Designer Portfolio</title>
+
+    <!-- Custom "MN" Tab Icon (Favicon) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23121212'/><text x='50%' y='62%' font-family='sans-serif' font-weight='900' font-size='42' fill='%23ec4899' text-anchor='middle'>MN</text></svg>">
+
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
+    <!-- Header / Navigation -->
     <header class="header">
-        <a href="#" class="logo"><span>Mahnoor Najeeb</span></a>
+        <a href="#home" class="logo"><span>Mahnoor Najeeb</span></a>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#designs">Design Gallery</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#feedback">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
 
         <i class="fa-solid fa-bars" id="menu-icon"></i>
 
-        <a href="https://github.com/mahnoornajeeb01-lang" target="_blank" class="visit-btn">Visit GitHub</a>
+        <a href="#contact" class="visit-btn">Contact Me</a>
     </header>
 
-  <section id="about" class="about">
-    <div class="about-container">
-        <!-- Main profile picture updated -->
-        <img src="img.jpeg" alt="Mahnoor Najeeb Profile Picture" class="profile-img">
+    <!-- Hero / Main Section -->
+    <section id="home" class="hero">
+        <!-- Designer Creative Animated Glow Elements -->
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
 
-        <div class="info-box">
-            <div class="text">
-                <h3>Hi, I'm</h3>
-                <h1>Mahnoor Najeeb</h1>
-                <span>Software Engineer & Graphic Designer</span>
-            </div>
-            <div class="btn-group">
-                <a href="Mahnoor Najeeb CV  (1).pdf" download="Mahnoor_Najeeb_CV.pdf" class="btn">Download CV</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            </div>     
-            <div class="socials">
-                <a href="https://github.com/mahnoornajeeb01-lang" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/mahnoor-najeeb/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank" aria-label="Fiverr"><i class="fa-solid fa-briefcase"></i></a>
-            </div>       
-        </div>
-    </div>
-</section>
-
-    <!-- Experience Section (Image Removed) -->
-    <section id="experience" class="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-info">
-            <div class="grid">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="sub-title">GRAPHIC DESIGNER</span>
+                <h1>I will give you the best Custom Designs in the Shortest Time</h1>
+                <p>Specializing in 3D layered shadow boxes, vector art, laser-cut SVG templates, and custom digital illustration.</p>
                 
-                <!-- Frontend Development Card with GitHub Link -->
-                <div class="grid-card">
-                    <i class="fa-solid fa-code"></i>
-                    <span>Frontend Development</span>
-                    <h3>2 Years</h3>
-                    <p>Building responsive web apps with HTML, CSS, JavaScript, React.js, and Express.js.</p>
-                    <a href="https://github.com/mahnoornajeeb01-lang" target="_blank" class="card-link">
-                        View GitHub Projects <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                <a href="#about-section" class="btn btn-pink">More About Me</a>
+            </div>
+
+            <!-- Profile Circle Frame with Floating Skill Icons -->
+            <div class="hero-image-wrapper">
+                <!-- Floating Skill Badges Spaced Evenly Around Picture -->
+                <div class="floating-icon icon-ai" title="Adobe Illustrator"><i class="fa-solid fa-pen-nib"></i></div>
+                <div class="floating-icon icon-ps" title="Photoshop"><i class="fa-solid fa-image"></i></div>
+                <div class="floating-icon icon-canva" title="Canva"><i class="fa-solid fa-palette"></i></div>
+                <div class="floating-icon icon-figma" title="Figma"><i class="fa-brands fa-figma"></i></div>
+                <div class="floating-icon icon-id" title="InDesign"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="floating-icon icon-vector" title="Vector Art"><i class="fa-solid fa-vector-square"></i></div>
+
+                <!-- Simple Clean Circle Picture -->
+                <div class="profile-circle">
+                    <img src="img.jpeg" alt="Mahnoor Najeeb" class="hero-img">
                 </div>
 
-                <!-- Graphic Designer Card -->
-                <div class="grid-card">
-                    <i class="fa-solid fa-bezier-curve"></i>
-                    <span>Graphic Designer</span>
-                    <h3>4 Years • Fiverr Freelancer</h3>
-                    <p>Specializing in custom 3D layered shadow boxes, laser cut SVG/DXF templates, vector art, and logos.</p>
-                    <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank" class="card-link fiverr-link">
-                        View Fiverr Gig <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-database"></i>
-                    <span>Database Systems</span>
-                    <h3>1 Year</h3>
-                    <p>Structuring SQL databases and connecting them seamlessly with frontend interfaces.</p>
-                </div>
-
-                <div class="grid-card">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span>Data & Lead Generation</span>
-                    <h3>2 Years</h3>
-                    <p>Data entry management, contact fetching, and lead generation workflows on Fiverr & Upwork.</p>
+                <!-- Experience Stats Card Positioned Gracefully on Right -->
+                <div class="stats-badge">
+                    <div class="stat-item">
+                        <h3>4+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <hr>
+                    <div class="stat-item">
+                        <h3>60+</h3>
+                        <p>Designs Completed</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Design Gallery (Clean Titles, Hover Preserved, Buttons & Descriptions Removed) -->
-    <section id="designs" class="projects">
-        <h2 class="section-title">3D Shadow Box & Vector Designs</h2>
-        <p class="section-subtitle">Custom multi-layer vector designs, laser cut templates, and papercraft art crafted for Cricut & Silhouette.</p>
+    <!-- Social Branding Banner -->
+    <section class="brand-banner">
+        <div class="banner-container">
+            <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank" class="brand-item"><i class="fa-solid fa-briefcase"></i> fiverr</a>
+            <a href="https://www.etsy.com" target="_blank" class="brand-item"><i class="fa-solid fa-store"></i> Etsy</a>
+            <a href="https://github.com/mahnoornajeeb01-lang" target="_blank" class="brand-item"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/mahnoor-najeeb/" target="_blank" class="brand-item"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </section>
 
-        <div class="projects-grid design-grid">
+    <!-- About Me & What Do I Help Section -->
+    <section id="about-section" class="about-overview">
+        <div class="overview-grid">
             
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img9.jpg" alt="Romantic Sunset Woodland Shadow Box">
-                    <h3>Romantic Sunset Woodland Shadow Box</h3>
-                </a>
+            <div class="overview-box">
+                <span class="section-tag">What Do I Help?</span>
+                <h2>I will help you with solutions and transform your design needs into precision templates.</h2>
+                <div class="counter-group">
+                    <div class="counter-box">
+                        <h3>60+</h3>
+                        <p>Complete Projects</p>
+                    </div>
+                    <div class="counter-box">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img10.jpg" alt="Monogram Floral Butterfly Shadow Box">
-                    <h3>Monogram Floral Butterfly Shadow Box</h3>
-                </a>
+            <div class="divider-line">
+                <span>SCROLL DOWN</span>
             </div>
 
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img1.jpg" alt="Let It Snow Winter Snowman Art">
-                    <h3>"Let It Snow" Winter Snowman Art</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img7.jpg" alt="Stained Glass Monarch Butterfly Frame">
-                    <h3>Stained Glass Monarch Butterfly Frame</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img8.jpg" alt="Autumn Sunflowers & Pumpkin Patch">
-                    <h3>Autumn Sunflowers & Pumpkin Patch</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img4.jpg" alt="Kindness Blooms Hummingbird Art">
-                    <h3>"Kindness Blooms" Hummingbird Art</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img5.jpg" alt="Mother's Day Heart Floral Frame">
-                    <h3>Mother's Day Heart Floral Frame</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img6.jpg" alt="Cozy Autumn Goose & Pumpkin Frame">
-                    <h3>Cozy Autumn Goose & Pumpkin Frame</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img2.jpg" alt="Halloween Ghost & Cobwebs Art">
-                    <h3>Halloween Ghost & Cobwebs Art</h3>
-                </a>
-            </div>
-
-            <div class="projects-card design-card">
-                <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank">
-                    <img src="img3.jpg" alt="Gamer Mode Activated Badge">
-                    <h3>Gamer Mode Activated Badge</h3>
-                </a>
+            <div class="overview-box">
+                <span class="section-tag">ABOUT ME</span>
+                <h2>I transform your ideas into remarkable digital designs.</h2>
+                <p>I am a passionate Graphic Designer with extensive experience in creating custom multi-layer 3D shadow boxes, precision laser-cut SVG/DXF templates, vector art conversions, and digital branding assets[cite: 1]. I have a proven track record of selling digital papercraft artwork on <strong>Etsy</strong> and delivering top-rated design services to clients globally via <strong>Fiverr</strong>[cite: 1].</p>
+                
+                <div class="about-action">
+                    <a href="Mahnoor Najeeb CV  (1).pdf" download="Mahnoor_Najeeb_CV.pdf" class="btn btn-pink"><i class="fa-solid fa-download"></i> Download CV</a>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Software Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Software Projects</h2>
+    <!-- Working Process Section -->
+    <section id="process" class="process-section">
+        <span class="section-tag center">WORKING PROCESS</span>
+        <h2 class="section-title">A Clear product design process is the basis of success</h2>
 
-        <div class="projects-grid">
-            <div class="projects-card">
-                <img src="project1.png" alt="Product Inventory System">
-                <h3>Product Inventory System</h3>
-                <p>Connected SQL Database with a full frontend application interface for inventory tracking.</p>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-sm">Live Demo</a>
-                    <a href="#" class="btn btn-sm btn-secondary">GitHub Repo</a>
+        <div class="process-steps">
+            <div class="step-card">
+                <div class="step-num">STEP-01</div>
+                <h3>Discover</h3>
+                <p>Analyze concept requirements, client reference files, and targeted layer depths.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">STEP-02</div>
+                <h3>Define</h3>
+                <p>Outline vector structure, key lines, color separations, and laser/cutting paths.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">STEP-03</div>
+                <h3>Develop</h3>
+                <p>Precision vector creation in Adobe Illustrator with layered depth preview alignment.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">STEP-04</div>
+                <h3>Deliver</h3>
+                <p>Export ready-to-use SVG, DXF, PNG, and PDF files compatible with Cricut & LightBurn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Services Section -->
+    <section id="services" class="services-section">
+        <span class="section-tag center">MY SERVICES</span>
+        <h2 class="section-title">Creates amazing digital experience</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>3D Layered Shadow Boxes</h3>
+                <p>Multi-depth papercut & wooden shadow box artwork optimized for Cricut, Silhouette, and laser cutters.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-pen-nib"></i>
+                <h3>Vector Tracing & Artwork</h3>
+                <p>Converting raster images, sketches, and logos into clean, infinitely scalable vector files.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-shapes"></i>
+                <h3>Logo & Brand Design</h3>
+                <p>Crafting distinct, eye-catching badges, emblems, and visual identities tailored for your brand.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-object-group"></i>
+                <h3>Digital Art & Laser Templates</h3>
+                <p>Ready-to-cut laser templates, seasonal cutouts, floral frames, and custom wall decor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Work / Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <span class="section-tag center">PORTFOLIO</span>
+        <h2 class="section-title">ALL creative work</h2>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card"><img src="img9.jpg" alt="Woodland Shadow Box"></div>
+            <div class="portfolio-card"><img src="img10.jpg" alt="Butterfly Laser Cut Template"></div>
+            <div class="portfolio-card"><img src="img1.jpg" alt="Let It Snow Winter Art"></div>
+            <div class="portfolio-card"><img src="img7.jpg" alt="Stained Glass Monarch Butterfly"></div>
+            <div class="portfolio-card"><img src="img8.jpg" alt="Autumn Sunflowers Design"></div>
+            <div class="portfolio-card"><img src="img4.jpg" alt="Kindness Blooms Hummingbird"></div>
+            <div class="portfolio-card"><img src="img5.jpg" alt="Mother's Day Heart Frame"></div>
+            <div class="portfolio-card"><img src="img6.jpg" alt="Cozy Autumn Goose Frame"></div>
+            <div class="portfolio-card"><img src="img2.jpg" alt="Halloween Ghost Art"></div>
+            <div class="portfolio-card"><img src="img3.jpg" alt="Gamer Badge Design"></div>
+        </div>
+    </section>
+
+    <!-- Client Feedback Section -->
+    <section id="feedback" class="feedback-section">
+        <span class="section-tag center">CLIENT FEEDBACK</span>
+        <h2 class="section-title">Happy clients feedback</h2>
+
+        <div class="feedback-card">
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="testimonial-text">
+                "Mahnoor immediately understood what I needed and delivered my final file in record time. She did a beautiful job taking an image I'd already created and separating the colors into different layers so that I could achieve a shadowbox-effect with my laser cutter for the final product. Mahnoor saved me time, money, and a lot of headaches while I continue to learn how to edit files and work with them in LightBurn - thank you!"
+            </p>
+            <div class="client-info">
+                <div class="client-avatar"><i class="fa-solid fa-user-check"></i></div>
+                <div>
+                    <h4>Fiverr Client Review</h4>
+                    <span>Laser Cutting & Shadowbox Project</span>
                 </div>
-            </div>   
+            </div>
+        </div>
+    </section>
+
+    <!-- Say Hello / Contact Section -->
+    <section id="contact" class="contact-section">
+        <span class="section-tag center">SAY HELLO</span>
         
-            <div class="projects-card">
-                <img src="project2.png" alt="E-Commerce Platform">
-                <h3>E-Commerce Website</h3>
-                <p>Full-stack interactive online storefront with product catalog integration.</p>
-                <div class="btn-group">
-                    <a href="#" class="btn btn-sm">Live Demo</a>
-                    <a href="#" class="btn btn-sm btn-secondary">GitHub Repo</a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Any questions? Feel free to contact</h2>
+                <p>Have a custom design project or need layer separations for laser cutting? Send a message and let's bring your ideas to life.</p>
+                <div class="direct-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>mahnoornajeeb01@gmail.com</span>
                 </div>
-            </div> 
+            </div>
+
+            <form action="#" method="POST" class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Enter name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Enter mail*" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Enter message*" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-pink btn-submit">SEND MESSAGE</button>
+            </form>
         </div>
     </section>
 
-<section class="contact" id="contact">
-    <div class="input-box">
-        <h2 class="section-title">Contact Me</h2>
-
-        <form action="#" method="POST">
-            <!-- Full Name -->
-            <div class="input">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Your Full Name" required>
-            </div>
-
-            <!-- Email Address -->
-            <div class="input">
-                <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="Your Email Address" required>
-            </div>
-
-            <!-- Message Box -->
-            <div class="input input-textarea">
-                <i class="fa-solid fa-message"></i>
-                <textarea placeholder="Your Message" rows="4" required></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-submit">Send Message</button>
-        </form>
-    </div>
-</section>
-
+    <!-- Footer -->
     <footer>
-        <ul> 
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#designs">Design Gallery</a></li>
-            <li><a href="#projects">Projects</a></li>
+        <ul class="footer-links"> 
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <div class="footer-socials">
+            <a href="https://www.fiverr.com/s/GzVB9m0" target="_blank" aria-label="Fiverr"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="https://github.com/mahnoornajeeb01-lang" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/mahnoor-najeeb/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
 
         <p class="copyright">&copy; All Rights Reserved | Mahnoor Najeeb</p>
     </footer>

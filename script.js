@@ -1,15 +1,15 @@
-// Toggle Mobile Menu
+// Mobile Navigation Toggle
 const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.getElementById('nav-links');
 
 if (menuIcon && navLinks) {
     menuIcon.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        menuIcon.classList.toggle('fa-xmark'); // Switches hamburger icon to an 'X' when open
+        menuIcon.classList.toggle('fa-xmark'); // Toggle to close icon
     });
 }
 
-// Close mobile menu when clicking any nav link
+// Close mobile menu when clicking any navigation link
 const navItems = document.querySelectorAll('.nav-links a');
 
 navItems.forEach(link => {
@@ -26,7 +26,7 @@ const sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    const scrollPosition = window.scrollY + 150; // Offset for header height
+    const scrollPosition = window.scrollY + 180;
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -44,3 +44,13 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Interactive Form Submit Feedback
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you, Mahnoor has received your message!');
+        contactForm.reset();
+    });
+}
