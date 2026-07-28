@@ -183,10 +183,12 @@ section {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-text .sub-title {
@@ -218,50 +220,55 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    margin: 0 auto;
 }
 
 .profile-circle {
-    width: 310px;
-    height: 310px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--accent-pink);
     box-shadow: 0 0 30px rgba(236, 72, 153, 0.35);
     z-index: 2;
+    flex-shrink: 0;
 }
 
 .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center top;
+    display: block;
 }
 
 /* Floating Skill Icons Positions Around Circle */
 .floating-icon {
     position: absolute;
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--bg-card);
     border: 1px solid var(--gray-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: var(--accent-pink);
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     animation: float 4s ease-in-out infinite;
     z-index: 3;
 }
 
-.icon-ai { top: -2%; left: 30%; animation-delay: 0s; }
-.icon-ps { top: 15%; left: 10%; animation-delay: 0.8s; }
-.icon-canva { bottom: 20%; left: 12%; animation-delay: 1.6s; }
-.icon-figma { bottom: -2%; left: 32%; animation-delay: 2.4s; }
-.icon-id { bottom: 10%; right: 26%; animation-delay: 3.2s; }
-.icon-vector { top: 10%; right: 28%; animation-delay: 4s; }
+.icon-ai { top: 10px; left: 15%; animation-delay: 0s; }
+.icon-ps { top: 25%; left: 0%; animation-delay: 0.8s; }
+.icon-canva { bottom: 25%; left: 0%; animation-delay: 1.6s; }
+.icon-figma { bottom: 10px; left: 20%; animation-delay: 2.4s; }
+.icon-id { bottom: 20%; right: 5%; animation-delay: 3.2s; }
+.icon-vector { top: 15%; right: 8%; animation-delay: 4s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -271,8 +278,9 @@ section {
 /* Stats Badge Shifted Cleanly To The Right Side */
 .stats-badge {
     position: absolute;
-    right: -25px;
-    top: 30%;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
     background: var(--bg-card);
     border: 1px solid var(--gray-border);
     padding: 1.2rem 1.4rem;
@@ -314,6 +322,8 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .brand-item {
@@ -344,6 +354,8 @@ section {
     grid-template-columns: 1fr 60px 1fr;
     gap: 2rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .overview-box h2 {
@@ -396,6 +408,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .step-card {
@@ -435,6 +449,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .service-card {
@@ -468,12 +484,14 @@ section {
 }
 
 /* ==========================================
-   8. PORTFOLIO GALLERY (ZOOM HOVER EFFECT)
+   8. PORTFOLIO GALLERY
    ========================================== */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-card {
@@ -571,6 +589,8 @@ section {
     padding: 3rem;
     border-radius: 12px;
     border: 1px solid var(--gray-border);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info h2 {
@@ -681,12 +701,6 @@ footer {
 /* ==========================================
    12. RESPONSIVE DESIGN
    ========================================== */
-@media (max-width: 1100px) {
-    .stats-badge {
-        right: 0px;
-    }
-}
-
 @media (max-width: 992px) {
     #menu-icon {
         display: block;
@@ -726,6 +740,7 @@ footer {
         position: relative;
         right: auto;
         top: auto;
+        transform: none;
         margin-top: 2rem;
         flex-direction: row;
         justify-content: center;
