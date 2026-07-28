@@ -486,7 +486,7 @@ section {
     gap: 0.8rem;
     color: var(--accent-pink);
     font-weight: 600;
-    word-break: break-all; /* Prevents long email from expanding page */
+    word-break: break-all;
 }
 
 .contact-form {
@@ -538,7 +538,7 @@ footer {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    flex-wrap: wrap; /* Wraps links cleanly on small mobile screens */
+    flex-wrap: wrap;
     list-style: none;
     margin-bottom: 1.2rem;
     padding: 0;
@@ -644,7 +644,7 @@ footer {
 
 @media (max-width: 576px) {
     section {
-        padding: 3.5rem 1rem 2rem; /* Reduced padding prevents squeezed elements */
+        padding: 3.5rem 1rem 2rem;
     }
 
     .header {
@@ -672,7 +672,7 @@ footer {
     }
 
     .portfolio-grid {
-        grid-template-columns: 1fr; /* Stack cards cleanly on mobile */
+        grid-template-columns: 1fr;
     }
 
     .contact-container {
