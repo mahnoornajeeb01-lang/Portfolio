@@ -46,23 +46,26 @@
                 <span class="sub-title">GRAPHIC DESIGNER</span>
                 <h1>I will give you the best Custom Designs in the Shortest Time</h1>
                 <p>Specializing in 3D layered shadow boxes, vector art, laser-cut SVG templates, and custom digital illustration.</p>
-                
+
                 <a href="#about-section" class="btn btn-pink">More About Me</a>
             </div>
 
             <!-- Profile Circle Frame with Floating Skill Icons -->
             <div class="hero-image-wrapper">
-                <!-- Floating Skill Badges Spaced Evenly Around Picture -->
-                <div class="floating-icon icon-ai" title="Adobe Illustrator"><i class="fa-solid fa-pen-nib"></i></div>
-                <div class="floating-icon icon-ps" title="Photoshop"><i class="fa-solid fa-image"></i></div>
-                <div class="floating-icon icon-canva" title="Canva"><i class="fa-solid fa-palette"></i></div>
-                <div class="floating-icon icon-figma" title="Figma"><i class="fa-brands fa-figma"></i></div>
-                <div class="floating-icon icon-id" title="InDesign"><i class="fa-solid fa-file-lines"></i></div>
-                <div class="floating-icon icon-vector" title="Vector Art"><i class="fa-solid fa-vector-square"></i></div>
+                <!-- Circle frame keeps the picture + icons isolated from the stats badge below -->
+                <div class="circle-frame">
+                    <!-- Floating Skill Badges Spaced Evenly Around Picture -->
+                    <div class="floating-icon icon-ai" title="Adobe Illustrator"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="floating-icon icon-ps" title="Photoshop"><i class="fa-solid fa-image"></i></div>
+                    <div class="floating-icon icon-canva" title="Canva"><i class="fa-solid fa-palette"></i></div>
+                    <div class="floating-icon icon-figma" title="Figma"><i class="fa-brands fa-figma"></i></div>
+                    <div class="floating-icon icon-id" title="InDesign"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="floating-icon icon-vector" title="Vector Art"><i class="fa-solid fa-vector-square"></i></div>
 
-                <!-- Simple Clean Circle Picture -->
-                <div class="profile-circle">
-                    <img src="img.jpeg" alt="Mahnoor Najeeb" class="hero-img">
+                    <!-- Simple Clean Circle Picture -->
+                    <div class="profile-circle">
+                        <img src="img.jpeg" alt="Mahnoor Najeeb" class="hero-img">
+                    </div>
                 </div>
 
                 <!-- Experience Stats Card Positioned Gracefully on Right -->
@@ -94,7 +97,7 @@
     <!-- About Me & What Do I Help Section -->
     <section id="about-section" class="about-overview">
         <div class="overview-grid">
-            
+
             <div class="overview-box">
                 <span class="section-tag">What Do I Help?</span>
                 <h2>I will help you with solutions and transform your design needs into precision templates.</h2>
@@ -118,7 +121,7 @@
                 <span class="section-tag">ABOUT ME</span>
                 <h2>I transform your ideas into remarkable digital designs.</h2>
                 <p>I am a passionate Graphic Designer with extensive experience in creating custom multi-layer 3D shadow boxes, precision laser-cut SVG/DXF templates, vector art conversions, and digital branding assets. I have a proven track record of selling digital papercraft artwork on <strong>Etsy</strong> and delivering top-rated design services to clients globally via <strong>Fiverr</strong>.</p>
-                
+
                 <div class="about-action">
                     <a href="Mahnoor Najeeb CV  (1).pdf" download="Mahnoor_Najeeb_CV.pdf" class="btn btn-pink"><i class="fa-solid fa-download"></i> Download CV</a>
                 </div>
@@ -193,17 +196,21 @@
         <span class="section-tag center">PORTFOLIO</span>
         <h2 class="section-title">All Creative Work</h2>
 
-        <div class="portfolio-grid">
-            <div class="portfolio-card"><img src="img9.jpg" alt="Woodland Shadow Box"></div>
-            <div class="portfolio-card"><img src="img10.jpg" alt="Butterfly Laser Cut Template"></div>
-            <div class="portfolio-card"><img src="img1.jpg" alt="Let It Snow Winter Art"></div>
-            <div class="portfolio-card"><img src="img7.jpg" alt="Stained Glass Monarch Butterfly"></div>
-            <div class="portfolio-card"><img src="img8.jpg" alt="Autumn Sunflowers Design"></div>
-            <div class="portfolio-card"><img src="img4.jpg" alt="Kindness Blooms Hummingbird"></div>
-            <div class="portfolio-card"><img src="img5.jpg" alt="Mother's Day Heart Frame"></div>
-            <div class="portfolio-card"><img src="img6.jpg" alt="Cozy Autumn Goose Frame"></div>
-            <div class="portfolio-card"><img src="img2.jpg" alt="Halloween Ghost Art"></div>
+        <div class="portfolio-grid" id="portfolioGrid">
             <div class="portfolio-card"><img src="img3.jpg" alt="Gamer Badge Design"></div>
+            <div class="portfolio-card"><img src="img7.jpg" alt="Stained Glass Monarch Butterfly"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img9.jpg" alt="Woodland Shadow Box"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img10.jpg" alt="Butterfly Laser Cut Template"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img1.jpg" alt="Let It Snow Winter Art"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img8.jpg" alt="Autumn Sunflowers Design"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img4.jpg" alt="Kindness Blooms Hummingbird"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img5.jpg" alt="Mother's Day Heart Frame"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img6.jpg" alt="Cozy Autumn Goose Frame"></div>
+            <div class="portfolio-card hidden-portfolio"><img src="img2.jpg" alt="Halloween Ghost Art"></div>
+        </div>
+
+        <div class="portfolio-toggle-wrap">
+            <button type="button" id="portfolioToggleBtn" class="btn btn-pink">Show More Designs <i class="fa-solid fa-chevron-down"></i></button>
         </div>
     </section>
 
@@ -230,7 +237,7 @@
     <!-- Say Hello / Contact Section -->
     <section id="contact" class="contact-section">
         <span class="section-tag center">SAY HELLO</span>
-        
+
         <div class="contact-container">
             <div class="contact-info">
                 <h2>Any questions? Feel free to contact</h2>
@@ -241,18 +248,22 @@
                 </div>
             </div>
 
-            <form action="#" method="POST" class="contact-form" id="contactForm">
+            <form action="https://formsubmit.co/mahnoornajeeb01@gmail.com" method="POST" class="contact-form" id="contactForm">
+                <input type="hidden" name="_subject" value="New message from your portfolio site">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
-                    <input type="text" placeholder="Enter name*" required>
+                    <input type="text" name="name" placeholder="Enter name*" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Enter mail*" required>
+                    <input type="email" name="email" placeholder="Enter mail*" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Enter subject">
+                    <input type="text" name="subject" placeholder="Enter subject">
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Enter message*" rows="4" required></textarea>
+                    <textarea name="message" placeholder="Enter message*" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-pink btn-submit">SEND MESSAGE</button>
             </form>
@@ -261,7 +272,7 @@
 
     <!-- Footer -->
     <footer>
-        <ul class="footer-links"> 
+        <ul class="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about-section">About</a></li>
             <li><a href="#process">Process</a></li>

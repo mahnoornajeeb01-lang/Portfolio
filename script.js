@@ -2,10 +2,25 @@
 const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.getElementById('nav-links');
 
+function closeMenu() {
+    navLinks.classList.remove('active');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+function openMenu() {
+    navLinks.classList.add('active');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark');
+}
+
 if (menuIcon && navLinks) {
     menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuIcon.classList.toggle('fa-xmark'); // Dynamic toggle to close icon
+        if (navLinks.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 }
 
@@ -15,14 +30,20 @@ const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(link => {
     link.addEventListener('click', () => {
         if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('fa-xmark');
+            closeMenu();
         }
     });
 });
 
+// Close mobile menu on window resize back to desktop width
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 992 && navLinks.classList.contains('active')) {
+        closeMenu();
+    }
+});
+
 // Highlight Active Header Link on Scroll
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
     let currentSectionId = '';
@@ -45,36 +66,61 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Modal Logic for "More About ME" Button
-const modal = document.getElementById('about-modal');
-const openBtn = document.getElementById('open-about-btn');
-const closeBtn = document.querySelector('.close-modal');
+// Portfolio "Show More" Toggle
+const portfolioToggleBtn = document.getElementById('portfolioToggleBtn');
+const portfolioGrid = document.getElementById('portfolioGrid');
 
-if (openBtn && modal) {
-    openBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.style.display = 'block';
+if (portfolioToggleBtn && portfolioGrid) {
+    const hiddenCards = portfolioGrid.querySelectorAll('.hidden-portfolio');
+    let expanded = false;
+
+    portfolioToggleBtn.addEventListener('click', () => {
+        expanded = !expanded;
+
+        hiddenCards.forEach(card => {
+            card.classList.toggle('hidden-portfolio', !expanded);
+        });
+
+        portfolioToggleBtn.innerHTML = expanded
+            ? 'Show Less <i class="fa-solid fa-chevron-up"></i>'
+            : 'Show More Designs <i class="fa-solid fa-chevron-down"></i>';
+
+        if (!expanded) {
+            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        }
     });
 }
-
-if (closeBtn && modal) {
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-}
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
 
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Thank you for reaching out, Mahnoor Najeeb will get back to you shortly!');
-        contactForm.reset();
+
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'SENDING...';
+        submitBtn.disabled = true;
+
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch('https://formsubmit.co/ajax/mahnoornajeeb01@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+
+            alert('Thank you for reaching out, Mahnoor Najeeb will get back to you shortly!');
+            contactForm.reset();
+        } catch (err) {
+            alert("Sorry, your message couldn't be sent right now. Please email mahnoornajeeb01@gmail.com directly.");
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }

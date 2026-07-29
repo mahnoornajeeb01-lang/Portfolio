@@ -25,6 +25,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -32,10 +34,17 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 section {
     padding: 6rem 8% 4rem;
+    overflow: hidden;
 }
 
 .section-tag {
@@ -99,6 +108,7 @@ section {
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid var(--gray-border);
+    gap: 1rem;
 }
 
 .logo span {
@@ -106,6 +116,7 @@ section {
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.5px;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -131,6 +142,7 @@ section {
     color: var(--text-primary);
     display: none;
     cursor: pointer;
+    z-index: 1100;
 }
 
 .visit-btn {
@@ -141,6 +153,7 @@ section {
     font-weight: 600;
     font-size: 0.9rem;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .visit-btn:hover {
@@ -158,6 +171,7 @@ section {
     display: flex;
     align-items: center;
     background: radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 1) 100%);
+    overflow: hidden;
 }
 
 .ambient-glow {
@@ -169,6 +183,7 @@ section {
     opacity: 0.25;
     z-index: 1;
     animation: glowPulse 8s infinite alternate ease-in-out;
+    pointer-events: none;
 }
 
 .glow-1 { top: 15%; left: 10%; background: var(--accent-pink); }
@@ -219,16 +234,30 @@ section {
     justify-content: center;
     align-items: center;
     min-height: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Dedicated frame for the picture + floating icons only.
+   Sized exactly to the picture, so the stats badge (a sibling)
+   can never compress or distort it. */
+.circle-frame {
+    position: relative;
+    width: 310px;
+    height: 310px;
+    flex-shrink: 0;
 }
 
 .profile-circle {
-    width: 310px;
-    height: 310px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--accent-pink);
     box-shadow: 0 0 30px rgba(236, 72, 153, 0.35);
     z-index: 2;
+    position: relative;
 }
 
 .hero-img {
@@ -256,16 +285,26 @@ section {
     z-index: 3;
 }
 
-.icon-ai { top: -2%; left: 30%; animation-delay: 0s; }
-.icon-ps { top: 15%; left: 10%; animation-delay: 0.8s; }
-.icon-canva { bottom: 20%; left: 12%; animation-delay: 1.6s; }
-.icon-figma { bottom: -2%; left: 32%; animation-delay: 2.4s; }
-.icon-id { bottom: 10%; right: 26%; animation-delay: 3.2s; }
-.icon-vector { top: 10%; right: 28%; animation-delay: 4s; }
+/* Icons sit on a hexagonal ring exactly on the circle's rim.
+   Positions are percentages of .circle-frame, so this single
+   rule works correctly at EVERY breakpoint automatically —
+   no per-screen-size overrides needed. */
+.floating-icon {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon-ai     { top: 0%;   left: 50%;   animation-delay: 0s; }
+.icon-vector { top: 25%;  left: 93.3%; animation-delay: 0.8s; }
+.icon-id     { top: 75%;  left: 93.3%; animation-delay: 1.6s; }
+.icon-figma  { top: 100%; left: 50%;   animation-delay: 2.4s; }
+.icon-canva  { top: 75%;  left: 6.7%;  animation-delay: 3.2s; }
+.icon-ps     { top: 25%;  left: 6.7%;  animation-delay: 4s; }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+    50%      { transform: translate(-50%, -50%) translateY(-10px); }
 }
 
 /* Stats Badge Shifted Cleanly To The Right Side */
@@ -362,6 +401,7 @@ section {
     display: flex;
     gap: 3rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .counter-box h3 {
@@ -468,38 +508,64 @@ section {
 }
 
 /* ==========================================
-   8. PORTFOLIO GALLERY (ZOOM HOVER EFFECT)
+   8. PORTFOLIO GALLERY (SQUARE CARDS, ZOOM HOVER)
    ========================================== */
+
+/* Cards are capped at 300px wide and stay perfectly square (1:1),
+   and are centered as a group — so whether 2 cards or 10 are
+   visible, they never stretch to fill the row. Because sizing is
+   done with aspect-ratio (not a fixed px height), this same rule
+   works correctly on desktop AND mobile with no extra overrides. */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+    justify-content: center;
     gap: 1.8rem;
 }
 
 .portfolio-card {
     position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--gray-border);
-    height: 270px;
     cursor: default;
     transition: border-color 0.3s ease;
+    padding: 0.6rem;
 }
 
 .portfolio-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.4s ease;
 }
 
 .portfolio-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .portfolio-card:hover {
     border-color: var(--accent-pink);
+}
+
+.hidden-portfolio {
+    display: none;
+}
+
+.portfolio-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+#portfolioToggleBtn {
+    border: none;
+}
+
+#portfolioToggleBtn i {
+    transition: transform 0.3s ease;
 }
 
 /* ==========================================
@@ -549,6 +615,7 @@ section {
     justify-content: center;
     font-size: 1.2rem;
     color: #fff;
+    flex-shrink: 0;
 }
 
 .client-info h4 {
@@ -590,6 +657,8 @@ section {
     gap: 0.8rem;
     color: var(--accent-pink);
     font-weight: 600;
+    flex-wrap: wrap;
+    word-break: break-all;
 }
 
 .contact-form {
@@ -608,6 +677,7 @@ section {
     color: #fff;
     font-size: 0.92rem;
     transition: 0.3s;
+    font-family: inherit;
 }
 
 .form-group input:focus,
@@ -633,6 +703,7 @@ footer {
 .footer-links {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1.8rem;
     list-style: none;
     margin-bottom: 1.5rem;
@@ -681,15 +752,26 @@ footer {
 /* ==========================================
    12. RESPONSIVE DESIGN
    ========================================== */
+
+/* Large tablets / small laptops */
 @media (max-width: 1100px) {
     .stats-badge {
         right: 0px;
     }
 }
 
+/* Tablets & below: switch to mobile nav + stack hero */
 @media (max-width: 992px) {
+    .header {
+        padding: 1rem 5%;
+    }
+
     #menu-icon {
         display: block;
+    }
+
+    .visit-btn {
+        display: none;
     }
 
     .nav-links {
@@ -703,15 +785,28 @@ footer {
         gap: 1.2rem;
         display: none;
         border-bottom: 1px solid var(--gray-border);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .nav-links.active {
         display: flex;
     }
 
+    section {
+        padding: 5rem 6% 3.5rem;
+    }
+
+    .hero {
+        padding-top: 7rem;
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 3.5rem;
     }
 
     .hero-text h1 {
@@ -722,11 +817,26 @@ footer {
         margin: 0 auto 2rem;
     }
 
+    .hero-text .btn {
+        margin: 0 auto;
+    }
+
+    .hero-image-wrapper {
+        flex-direction: column;
+        margin: 2.5rem auto 0;
+        min-height: auto;
+    }
+
+    .circle-frame {
+        width: 280px;
+        height: 280px;
+    }
+
     .stats-badge {
         position: relative;
         right: auto;
         top: auto;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         flex-direction: row;
         justify-content: center;
     }
@@ -744,7 +854,159 @@ footer {
         display: none;
     }
 
+    .about-action {
+        text-align: center;
+    }
+
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* Small tablets & large phones */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .circle-frame {
+        width: 250px;
+        height: 250px;
+    }
+
+    .floating-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .contact-container {
+        padding: 2rem;
+    }
+
+    .feedback-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 576px) {
+    .logo span {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 4.5rem 6% 3rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .circle-frame {
+        width: 200px;
+        height: 200px;
+    }
+
+    .floating-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .stats-badge {
+        padding: 0.7rem 1rem;
+        gap: 0.4rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1rem;
+    }
+
+    .stat-item p {
+        font-size: 0.65rem;
+    }
+
+    .overview-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .counter-group {
+        gap: 2rem;
+    }
+
+    .counter-box h3 {
+        font-size: 1.7rem;
+    }
+
+    .process-steps,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 2rem 1.4rem;
+    }
+
+    .feedback-card {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.92rem;
+    }
+
+    .contact-container {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .direct-email {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 2rem 6%;
+    }
+
+    .footer-links {
+        gap: 1rem 1.4rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    .hero-text h1 {
+        font-size: 1.65rem;
+    }
+
+    .circle-frame {
+        width: 175px;
+        height: 175px;
+    }
+
+    .floating-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .stats-badge {
+        flex-direction: column;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .stats-badge hr {
+        border-left: none;
+        border-top: 1px solid var(--gray-border);
     }
 }
